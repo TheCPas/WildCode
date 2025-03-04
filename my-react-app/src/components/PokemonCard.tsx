@@ -4,4 +4,5 @@ function PokemonCard({ pokemon }) {
   </figure>;
 }
 
+
 export default PokemonCard;

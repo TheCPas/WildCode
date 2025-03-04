@@ -3,20 +3,19 @@ import { useState } from "react";
 import PokemonCard from "./components/PokemonCard";
 
 function App() {
-  const [pokemonIndex, setCount] = useState(0);
-  const handleClicPreck = () => {
-    setCount(pokemonIndex - 1)
+  const [pokemonIndex, setPokemonIndex] = useState(0);
+  const handleClicPok = (index : number) => {
+    setPokemonIndex(index)
   };
-  const handleClickSuiv = () => {
-    setCount(pokemonIndex + 1)
-  };
-
   const pokemon = pokemonList[pokemonIndex];
 
   return (
     <div>
       <PokemonCard pokemon={pokemon} />
       <nav>
+        {pokemonList.map((article, index) => (
+            <button onClick={() => handleClicPok(index)} key={article.name}>{article.name}</button>
+        ))}
         {
         /*{pokemonIndex > 0 ? <button type="button" onClick={handleClicPreck}>Précédent</button>:""}
         {pokemonIndex < pokemonList.length - 1 ? <button type="button" onClick={handleClickSuiv}>Suivant</button>:""}*/
